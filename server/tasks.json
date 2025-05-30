@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "task 1",
+    "ref": "/public/images/design1.png"
+  },
+  {
+    "id": 2,
+    "name": "task 2",
+    "ref": "/public/images/design2.png"
+  }
+]

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://s.kontur.ru/common-v2/fonts/labgrotesque/labgrotesque.css"
+    />
+    <style>
+      body {
+        font-family:
+          Lab Grotesque,
+          sans-serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Admin panel</h1>
+
+    <h2>Список задач</h2>
+    <ul id="taskList"></ul>
+
+    <br />
+
+    <h2>Запустить задачу</h2>
+    <form id="startForm">
+      <select name="taskId" id="taskSelect"></select>
+      <br />
+      <br />
+      <label>
+        Длительность (сек):
+        <br />
+        <input name="duration" type="number" value="600" />
+      </label>
+      <br />
+      <br />
+      <button type="submit">Начать</button>
+    </form>
+
+    <div id="status" style="margin-top: 20px; color: green"></div>
+
+    <script>
+      function loadTasks() {
+        fetch("/tasks")
+          .then((r) => r.json())
+          .then((arr) => {
+            const ul = document.getElementById("taskList");
+            ul.innerHTML = "";
+            const sel = document.getElementById("taskSelect");
+            sel.innerHTML = "";
+            arr.forEach((t) => {
+              const li = document.createElement("li");
+              li.innerText = `${t.id}: ${t.name} (${t.ref})`;
+              ul.appendChild(li);
+              const opt = document.createElement("option");
+              opt.value = t.id;
+              opt.innerText = t.name;
+              sel.appendChild(opt);
+            });
+          });
+      }
+      loadTasks();
+
+      document.getElementById("startForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        fetch("/start", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            taskId: fd.get("taskId"),
+            duration: fd.get("duration"),
+          }),
+        })
+          .then((r) => r.json())
+          .then((d) => {
+            document.getElementById("status").innerText =
+              `Started task ${d.taskId} for ${d.duration}s`;
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <style>
+    body {
+      font-family: Lab Grotesque, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: black;
+      overflow: hidden;
+    }
+
+    .screen {
+      display: flex;
+      justify-content: center;
+      gap: 16px 32px;
+    }
+
+    .screen>div {
+      background: white;
+      position: relative;
+    }
+
+    .screen>div,
+    .screen>div img {
+      border-radius: 8px;
+    }
+
+    .screen>div>div {
+      padding: 12px 16px;
+      font-size: 24px;
+      font-family: sans-serif;
+      position: absolute;
+      text-align: center;
+      margin-top: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #3d3d3d;
+      color: #fff;
+    }
+
+    .time {
+      position: fixed;
+      top: 4px;
+      left: 50%;
+      transform: translate(-50%);
+      font-size: 20px;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      opacity: 0.75;
+      font-weight: 100;
+      font-feature-settings: "tnum";
+      font-variant-numeric: tabular-nums;
+      font-size: 100px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://s.kontur.ru/common-v2/fonts/labgrotesque/labgrotesque.css" />
+</head>
+
+<body>
+  <div class="time" id="timer"></div>
+  <div class="screen">
+    <div class="screen__result">
+      <img src="./result.png" alt="" />
+      <div style="border-radius: 4px">Оригинал</div>
+    </div>
+    <div class="screen__one">
+      <img src="./one.png" alt="" />
+      <div style="background: #19b7f7; border-radius: 4px">Вася</div>
+    </div>
+    <div class="screen__two">
+      <img src="./two.png" alt="" />
+      <div style="background: #e03e19; border-radius: 4px">Петя</div>
+    </div>
+  </div>
+  <script>
+    let totalSeconds = 240;
+
+    function updateTimer() {
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+
+      const displayMinutes = minutes < 10 ? "0" + minutes : minutes;
+      const displaySeconds = seconds < 10 ? "0" + seconds : seconds;
+
+      document.getElementById("timer").textContent =
+        `${displayMinutes}:${displaySeconds}`;
+
+      if (totalSeconds > 0) {
+        totalSeconds--;
+      } else {
+        clearInterval(timerInterval);
+        alert("Время вышло!");
+      }
+    }
+
+    const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+
+</html>

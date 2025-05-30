@@ -1,0 +1,14 @@
+{
+  "name": "code-in-the-dark",
+  "version": "1.0.0",
+  "main": "index.js",
+  "packageManager": "pnpm@10.7.1",
+  "scripts": {
+    "start": "pnpm -r start"
+  },
+  "author": "",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
