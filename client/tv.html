@@ -11,6 +11,11 @@
   <style>
     * {
       box-sizing: border-box;
+  
+    }
+
+    html {
+      overflow: hidden;
     }
 
     body {
@@ -19,17 +24,20 @@
         sans-serif;
       background: black;
       color: white;
-      padding: 60px;
+      padding: 72px 60px 60px;
+      overflow: auto;
     }
 
     h3 {
       font-size: 32px;
+      margin-bottom: 20px;
     }
 
     #refImg {
+      width: 100%;
       border: 1px solid rgba(255, 255, 255, 0.1);
       object-fit: scale-down;
-      object-position: 0% 0%;
+      object-position: 50% 0%;
       border-radius: 8px;
       background: white;
       box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5);
@@ -54,24 +62,30 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       margin: 0;
     ">
-    <div>
-      <h3>Оригинал</h3>
-      <img id="refImg" src="" />
-    </div>
 
     <div>
       <h3>Игрок 1</h3>
       <iframe id="frame1" sandbox style="width: 100%; border: none"></iframe>
     </div>
     <div>
-      <h3>Игрок 2</h3>
+      <h3 style="text-align: center;">Оригинал</h3>
+      <img id="refImg" src="" />
+    </div>
+    <div>
+      <h3 style="text-align: right;">Игрок 2</h3>
       <iframe id="frame2" sandbox style="width: 100%; border: none"></iframe>
     </div>
-    <div id="timer" style="position: fixed; top: 24px; right: 24px; font-size: 50px"></div>
+    <div id="timer" style="position: fixed; left: 50%; transform: translateX(-50%); top: 24px; font-size: 64px"></div>
 
     <script>
       let currentTaskId = null;
       let lastCodes = { 1: "", 2: "" };
+
+      function formatTime(sec) {
+        const m = Math.floor(sec / 60);
+        const s = sec % 60;
+        return `${m}:${s.toString().padStart(2, '0')}`;
+      }
 
       function poll() {
         fetch("/state")
@@ -84,8 +98,8 @@
                 .then((r) => r.json())
                 .then((tasks) => {
                   const t = tasks.find((x) => x.id === state.taskId);
-
-                  document.getElementById("refImg").src = t ? `http://localhost:3000${t.ref}` : "";
+                  const img = document.getElementById("refImg");
+                  img.src = t ? `http://${window.location.hostname}:3000${t.ref}` : "";
                 });
               // очистить экраны игроков
               document.getElementById("frame1").srcdoc = "";
@@ -102,7 +116,7 @@
               document.getElementById("frame2").srcdoc = lastCodes[2];
             }
             // таймер
-            document.getElementById("timer").innerText = state.timeLeft;
+            document.getElementById("timer").innerText = formatTime(state.timeLeft);
           });
       }
       setInterval(poll, 100);
