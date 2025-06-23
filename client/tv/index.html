@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TV</title>
+    <link rel="stylesheet" href="./tv.css" />
+  </head>
+
+  <body>
+    <div class="main-grid">
+      <div class="player-column">
+        <h3 class="player-title">Player 1</h3>
+        <iframe id="frame1" sandbox class="player-frame"></iframe>
+      </div>
+      <div class="original-column">
+        <h3 class="original-title">Original</h3>
+        <img id="refImg" src="" class="reference-image" />
+      </div>
+      <div class="player-column">
+        <h3 class="player-title right-align">Player 2</h3>
+        <iframe id="frame2" sandbox class="player-frame"></iframe>
+      </div>
+      <div id="timer" class="timer"></div>
+    </div>
+
+    <script type="module" src="./tv.js"></script>
+  </body>
+</html>

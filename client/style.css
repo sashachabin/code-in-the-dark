@@ -1,0 +1,41 @@
+body {
+  background: black;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  padding: 0 48px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-size: 72px;
+}
+
+a {
+  white-space: nowrap;
+  position: relative;
+  display: inline-block;
+  align-items: center;
+  gap: 0.25em;
+  color: white;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 32px;
+  border-radius: 16px;
+  transition: 0.1s ease;
+}
+
+a:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+a:active {
+  background: rgba(255, 255, 255, 0.4);
+}

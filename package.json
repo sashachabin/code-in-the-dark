@@ -1,14 +1,18 @@
 {
   "name": "code-in-the-dark",
-  "version": "1.0.0",
-  "main": "index.js",
-  "packageManager": "pnpm@10.7.1",
-  "scripts": {
-    "start": "pnpm -r start"
+  "author": "Alexander Chabin",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "engines": {
+    "node": ">=18"
   },
-  "author": "",
-  "description": "",
-  "dependencies": {
-    "concurrently": "^9.1.2"
+  "scripts": {
+    "start": "npm run build --workspace=client && npm run start --workspace=server",
+    "dev": "NODE_ENV=development concurrently 'npm run start --workspace=server' 'npm run start --workspace=client'"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
   }
 }

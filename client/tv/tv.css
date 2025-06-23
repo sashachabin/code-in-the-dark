@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: black;
+  color: white;
+  padding: 72px 60px 60px;
+  overflow: auto;
+}
+
+.player-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.original-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.main-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+}
+
+.reference-image {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  object-fit: scale-down;
+  object-position: 50% 0%;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5);
+  height: 70vh;
+}
+
+.player-frame {
+  border-radius: 8px;
+  background: white;
+  height: 70vh;
+  width: 100%;
+  border: none;
+}
+
+.timer {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 24px;
+  font-size: 64px;
+}

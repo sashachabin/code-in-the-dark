@@ -1,27 +1,29 @@
-import { defineConfig } from 'vite';
-import path from 'path';
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { defineConfig } from "vite";
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  root: '.',
-  base: './',
+  root: ".",
+  baseUr: ".",
   build: {
-    outDir: 'dist',
+    outDir: "dist",
     rollupOptions: {
       input: {
-        player: path.resolve(__dirname, 'player.html'),
-        admin:  path.resolve(__dirname, 'admin.html'),
-        tv:     path.resolve(__dirname, 'tv.html')
-      }
-    }
+        main: resolve(__dirname, "index.html"),
+        game: resolve(__dirname, "game/index.html"),
+        admin: resolve(__dirname, "admin/index.html"),
+        tv: resolve(__dirname, "tv/index.html"),
+      },
+    },
   },
   server: {
-    port: 8080,
+    port: process.env.CLIENT_DEV_PORT || 8080,
     host: true,
     proxy: {
-      '/tasks':  'http://localhost:3000',
-      '/start':  'http://localhost:3000',
-      '/code':   'http://localhost:3000',
-      '/state':  'http://localhost:3000'
-    }
-  }
+      "/api": {
+        target: `http://localhost:${process.env.SERVER_PORT || 4747}`,
+      },
+    },
+  },
 });

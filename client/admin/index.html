@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./admin.css" />
+  </head>
+
+  <body>
+    <div class="content-wrapper">
+      <section class="control-section">
+        <h2 class="section-title">Run task</h2>
+        <form id="startForm" class="start-form">
+          <select name="taskId" id="taskSelect" class="task-select"></select>
+          <br />
+          <br />
+          <label class="duration-label">
+            Dureation of round:&nbsp;<input
+              name="duration"
+              type="number"
+              value="10"
+              class="duration-input"
+            />
+            minutes
+          </label>
+          <br />
+          <br />
+          <button type="submit" class="button">Start round</button>
+          <div id="status" class="status-message"></div>
+        </form>
+
+        <br />
+        <h2 class="section-title">Tasks list</h2>
+        <ul id="taskList" class="task-list"></ul>
+      </section>
+
+      <section class="round-details-section">
+        <h2 class="section-title">
+          Current round <span id="time-left" class="time-left"></span>
+        </h2>
+        <div id="img-name" class="image-name">—</div>
+
+        <img id="refImg" alt="" class="reference-image" />
+
+        <h2 class="section-title">Players' html</h2>
+
+        <div class="players-html">
+          <textarea name="" id="one" class="code-textarea" disabled></textarea>
+          <textarea name="" id="two" class="code-textarea" disabled></textarea>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="./admin.js"></script>
+  </body>
+</html>
