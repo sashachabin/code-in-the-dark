@@ -59,6 +59,7 @@ http://<server_ip>/tv/
 - [x] Admin panel for rounds
 - [x] Basic admin password
 - [x] Real-time updates on TV screen
+- [ ] Add Tailwind/Bootstrap options
 - [ ] Tasks with assets & variables
 - [ ] Switch code/preview on TV
 - [ ] Pulling → WebSockets
