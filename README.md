@@ -1,34 +1,26 @@
 # Code In The Dark
 
-Code In The Dark app for tiny LAN sessions! 🕶️
+Front-End contest for tiny LAN parties. Based on the original [Tictail](https://tictail.com/) challenge: recreate a UI from a single screenshot using HTML & CSS and don’t see the result until time’s up!
 
-Code In The Dark is a front-end contest that originated at [Tictail](https://tictail.com/). Competitors build a UI from one screenshot using HTML and CSS. They do not see their results until the round ends!”
-
-## Features
-
-- 👨‍💻👨‍💻 2 players with Monaco Editor (VSCode) + Emmet
-- 📺 Shared TV screen showing live updates
-- 🎛️ Simple admin panel to create and switch rounds
-
-| Player editor | TV | Admin Screen |
-| --  | -- | -- |
-| ![image](https://github.com/user-attachments/assets/66a1ef44-e9ee-4dbd-82ff-4a5fe8a727d5) | ![image](https://github.com/user-attachments/assets/268a108e-1e70-467c-b125-f0c10b7489cf) | ![image](https://github.com/user-attachments/assets/3050bec3-0e05-48f5-bfde-b29c936e642e) |
+- 2-player coding in Monaco editor with Emmet
+- Live updates on a TV screen
+- Admin controls for rounds and timing
 
 
-## Tasks
+<br />
 
-There are 12 prepared tasks in `/tasks` folder:
+| Main `/` | TV `/tv` |
+| --  | -- |
+| ![image](https://github.com/user-attachments/assets/d131cfd2-5926-442b-a214-a64dfa346402) | ![image](https://github.com/user-attachments/assets/61b2df27-2a36-4d87-9ebc-a49637b7d46e) |
 
-- chat.png
-- vote-checkbox.png
-- calendar.png
-- confirm.png
-- payments.png
-- …
 
-To add a new task, put your own screenshot in `/tasks`
 
-## How to start
+| Player editor `/game?player=1\|2` | Admin panel `/admin` |
+| --  | -- |
+| ![image](https://github.com/user-attachments/assets/66a1ef44-e9ee-4dbd-82ff-4a5fe8a727d5) | ![image](https://github.com/user-attachments/assets/3050bec3-0e05-48f5-bfde-b29c936e642e) |
+
+
+## Host Your Own Contest
 
 1. Make sure all computers are on the same LAN
 
@@ -51,7 +43,22 @@ http://<server_ip>/game/?player=2
 http://<server_ip>/tv/
 ```
 
-## Roadmap/Ideas
+
+## Custom tasks
+
+There are 12 prepared tasks in [`/tasks`](https://github.com/sashachabin/code-in-the-dark/tree/master/tasks) folder:
+
+- chat.png
+- vote-checkbox.png
+- calendar.png
+- confirm.png
+- payments.png
+- …
+
+To add a new task, put your own screenshot in [`/tasks`](https://github.com/sashachabin/code-in-the-dark/tree/master/tasks)
+
+
+## Roadmap
 
 - [x] Player editor with live preview
 - [x] [Monaco Editor](https://github.com/microsoft/monaco-editor)
@@ -81,7 +88,7 @@ npm i
 3. Run client and server apps
 
 ```
-npm start
+npm run dev
 ```
 
 ## See also
