@@ -10,6 +10,11 @@ Code In The Dark is a front-end contest that originated at [Tictail](https://tic
 - 📺 Shared TV screen showing live updates
 - 🎛️ Simple admin panel to create and switch rounds
 
+| Player editor | TV | Admin Screen |
+| --  | -- | -- |
+| ![image](https://github.com/user-attachments/assets/66a1ef44-e9ee-4dbd-82ff-4a5fe8a727d5) | ![image](https://github.com/user-attachments/assets/268a108e-1e70-467c-b125-f0c10b7489cf) | ![image](https://github.com/user-attachments/assets/3050bec3-0e05-48f5-bfde-b29c936e642e) |
+
+
 ## Tasks
 
 There are 12 prepared tasks in `/tasks` folder:
