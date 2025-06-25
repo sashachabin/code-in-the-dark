@@ -1,5 +1,8 @@
 # Code In The Dark
 
+[![Inspired by Code in the Dark](https://img.shields.io/badge/inspired--by-Code%20in%20the%20Dark-blue)](https://github.com/codeinthedark/editor)
+
+
 Front-End contest for tiny LAN parties. Based on the original [Tictail](https://tictail.com/) challenge: recreate a UI from a single screenshot using HTML & CSS and don’t see the result until time’s up!
 
 - 2-player coding in Monaco editor with Emmet
@@ -93,4 +96,5 @@ npm run dev
 
 ## See also
 
-See the original Code In The Dark events here: [codeinthedark/codeinthedark.github.io](https://github.com/codeinthedark/codeinthedark.github.io)! 🤝
+- [codeinthedark.com](http://codeinthedark.com) — the Code In The Dark contest by [Tictail](https://tictail.com/)
+- [codeinthedark/editor](https://github.com/codeinthedark/editor) — the original editor  
