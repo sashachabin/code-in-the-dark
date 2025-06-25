@@ -1,6 +1,7 @@
 {
   "name": "code-in-the-dark",
   "author": "Alexander Chabin",
+  "license": "MIT",
   "workspaces": [
     "client",
     "server"
