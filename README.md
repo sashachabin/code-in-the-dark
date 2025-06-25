@@ -3,7 +3,7 @@
 [![Inspired by codeinthedark/editor](https://img.shields.io/badge/inspired--by-codeinthedark/editor-blue)](https://github.com/codeinthedark/editor)
 
 
-Front-End contest for tiny LAN parties. Based on the original [Tictail](https://tictail.com/) challenge: recreate a UI from a single screenshot using HTML & CSS and don’t see the result until time’s up!
+A client–server application of the Code In The Dark front-end game. Based on the original [Tictail](https://tictail.com/) challenge: recreate a UI from a single screenshot using HTML & CSS and don’t see the result until time’s up!
 
 - 2-player coding in Monaco editor with Emmet
 - Live updates on a TV screen
